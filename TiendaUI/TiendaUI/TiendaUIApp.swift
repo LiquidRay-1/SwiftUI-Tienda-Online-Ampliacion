@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct TiendaUIApp: App {
+    @State private var modelData = ModelData()
+    
+    var favoritos = Favoritos()
+    
+    var lista = List()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ControladorView()
+                .environmentObject(lista)
+                .environment(modelData)
+                .environmentObject(favoritos)
         }
     }
 }

@@ -8,36 +8,47 @@
 import SwiftUI
 
 struct ItemRow: View {
-    let productos: ProductosItem
+    
+    @EnvironmentObject var favoritos: Favoritos
+    
+    var producto: ProductosItem
+    
     var body: some View {
-        let imagenUrl = URL(string: productos.image)
         HStack{
             AsyncImage(
-                url: imagenUrl, content: { image in
+                url: producto.imageUrl,
+                content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 100, maxHeight: 100)
                 },
-                placeholder:{
+                placeholder: {
                     ProgressView()
                 }
-                
-            ).clipShape(Circle())
-                .overlay(Circle().stroke(.black, lineWidth: 1))
-                .shadow(radius: 5)
-                .frame(width: 100, height: 100)
-            
-            VStack(alignment: .leading){
-                Text(productos.title)
+            )
+            .frame(maxWidth: 50, minHeight: 50)
+            VStack(alignment: .leading) {
+                Text(producto.title)
+                    .font(.callout)
+                Text(producto.category)
                     .font(.headline)
-                Text("\(productos.price, specifier: "%.2f") €")
             }
             Spacer()
-            Text(productos.category)
+            if favoritos.isFavorite(producto) {
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.yellow)
+            }
+            Text(String(format: "%.2f", producto.price) + "€")
+                .font(.callout)
         }
     }
 }
 
-#Preview {
-    ItemRow(productos: ProductosItem.example)
+#Preview("Lista") {
+    Group{
+        ItemRow(producto: ModelData().productos[0])
+        ItemRow(producto: ModelData().productos[1])
+        ItemRow(producto: ModelData().productos[2])
+    }
+    .environmentObject(Favoritos())
 }
+
