@@ -10,12 +10,9 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(ModelData.self) var modelData
-    
     @EnvironmentObject var list: List
-    
     @EnvironmentObject var favoritos: Favoritos
-    
-   @State private var showAlert = false
+    @State private var showAlert = false
     
     var producto: ProductosItem
     

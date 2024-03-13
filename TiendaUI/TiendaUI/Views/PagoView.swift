@@ -14,9 +14,7 @@ struct PagoView: View {
     let paymentTypes = ["Efectivo", "Tarjeta de credito", "Programa de puntos"]
     
     @State private var paymentType = "Efectivo"
-    
     @State private var addCuponDetails = false
-    
     @State private var cuponCode = ""
     
     let propinas = [0, 5, 10, 15, 20]

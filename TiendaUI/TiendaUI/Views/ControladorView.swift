@@ -10,9 +10,7 @@ import SwiftUI
 struct ControladorView: View {
     
     @Environment(ModelData.self) var modelData
-    
     @EnvironmentObject var favoritos: Favoritos
-    
     @EnvironmentObject var lista: List
     
     var body: some View {

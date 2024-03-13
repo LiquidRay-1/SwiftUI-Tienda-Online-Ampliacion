@@ -12,8 +12,7 @@ struct ItemDetail: View {
     @Environment(ModelData.self) var modelData
     @EnvironmentObject var lista: List
     @EnvironmentObject var favoritos: Favoritos
-    
-   @State private var showAlert = false
+    @State private var showAlert = false
     
     var producto: ProductosItem
     var productoIndex: Int {

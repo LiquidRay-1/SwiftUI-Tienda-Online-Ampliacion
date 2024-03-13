@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProductoListView: View {
-    @State private var categoriaSelected = ""
     
+    @State private var categoriaSelected = ""
     @Environment(ModelData.self) var modelData
     
     var filteredProductos: [ProductosItem] {
@@ -27,7 +27,6 @@ struct ProductoListView: View {
     }
     
     var body: some View {
-        
         NavigationSplitView{
             Picker(selection: $categoriaSelected, content: {
                 Text("Selecciona").tag("")

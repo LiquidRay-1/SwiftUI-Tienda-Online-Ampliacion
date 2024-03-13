@@ -11,9 +11,9 @@ struct FavoriteButton: View {
     
     @State var isSet: Bool
     @EnvironmentObject var favoritos: Favoritos
+    @Environment(ModelData.self) var modelData
     
     var producto: ProductosItem
-    @Environment(ModelData.self) var modelData
 
     var body: some View {
         Button {
