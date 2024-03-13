@@ -43,12 +43,20 @@ struct ItemRow: View {
     }
 }
 
-#Preview("Lista") {
-    Group{
-        ItemRow(producto: ModelData().productos[0])
-        ItemRow(producto: ModelData().productos[1])
-        ItemRow(producto: ModelData().productos[2])
+struct ListaView: View {
+    
+    @EnvironmentObject var favoritos: Favoritos
+    
+    var productos: [ProductosItem]
+    
+    var body: some View {
+        List(productos) { producto in
+            ItemRow(producto: producto)
+        }
     }
-    .environmentObject(Favoritos())
 }
 
+#Preview("Lista") {
+    ListaView(productos: ModelData().productos)
+        .environmentObject(Favoritos())
+}

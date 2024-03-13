@@ -30,9 +30,9 @@ struct FavoritosView: View {
                 }
             }
                 .animation(.default, value: favoritosProductos)
-                    .navigationTitle("Productos favoritos")
+                    .navigationTitle("Favoritos")
         } detail: {
-            Text("Selecciona un producto")
+            Text("Selecciona un producto favorito")
             }
     }
 }

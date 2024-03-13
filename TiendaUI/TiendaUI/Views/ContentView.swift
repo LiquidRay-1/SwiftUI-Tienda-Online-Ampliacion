@@ -64,7 +64,7 @@ struct ContentView: View {
             Divider()
             Text(producto.description)
             Spacer()
-            Button("Comprar producto") {
+            Button("Comprar") {
                 list.add(item: producto)
                 showAlert.toggle()
             }
@@ -77,10 +77,10 @@ struct ContentView: View {
         .padding()
             .navigationTitle(producto.title)
             .navigationBarTitleDisplayMode(.inline)
-            .alert("Articulo añadido al pedido", isPresented: $showAlert){
+            .alert("Artículo añadido al carrito", isPresented: $showAlert){
                 
             } message: {
-                Text("El articulo se ha añadido al pedido")
+                Text("Añadido con éxito")
             }
     }
 }
