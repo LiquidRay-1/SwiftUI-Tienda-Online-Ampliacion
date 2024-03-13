@@ -7,7 +7,7 @@
 
 import Foundation
 
-class List: ObservableObject {
+class Lista: ObservableObject {
     
     @Published var items = [ProductosItem]()
     

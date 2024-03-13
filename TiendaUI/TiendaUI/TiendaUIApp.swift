@@ -13,7 +13,7 @@ struct TiendaUIApp: App {
     
     var favoritos = Favoritos()
     
-    var lista = List()
+    var lista = Lista()
     
     var body: some Scene {
         WindowGroup {

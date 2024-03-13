@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PagoView: View {
     
-    @EnvironmentObject var lista: List
+    @EnvironmentObject var lista: Lista
     
     let paymentTypes = ["Efectivo", "Tarjeta de credito", "Programa de puntos"]
     
@@ -58,6 +58,6 @@ struct PagoView: View {
 
 #Preview {
     PagoView()
-        .environmentObject(List())
+        .environmentObject(Lista())
 }
 

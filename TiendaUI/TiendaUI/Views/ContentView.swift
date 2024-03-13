@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(ModelData.self) var modelData
-    @EnvironmentObject var list: List
+    @EnvironmentObject var list: Lista
     @EnvironmentObject var favoritos: Favoritos
     @State private var showAlert = false
     
@@ -59,7 +59,7 @@ struct ContentView: View {
                     .foregroundStyle(.yellow)
                 Spacer()
                 Text("\(producto.rating.count)")
-                Image(systemName: "person.fill")
+                Image(systemName: "person")
             }
             Divider()
             Text(producto.description)
@@ -89,7 +89,7 @@ struct ContentView: View {
     NavigationStack{
         ContentView(producto: ModelData().productos[0])
             .environment(ModelData())
-            .environmentObject(List())
+            .environmentObject(Lista())
             .environmentObject(Favoritos())
     }
 }

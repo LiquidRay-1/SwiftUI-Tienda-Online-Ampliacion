@@ -20,6 +20,7 @@ struct FavoritosView: View {
     
     var body: some View {
         NavigationSplitView{
+            List{
                 ForEach(favoritosProductos){ producto in
                     NavigationLink {
                         ContentView(producto: producto)
@@ -27,8 +28,9 @@ struct FavoritosView: View {
                         ItemRow(producto: producto)
                     }
                 }
+            }
                 .animation(.default, value: favoritosProductos)
-                    .navigationTitle("Todos los productos favoritos")
+                    .navigationTitle("Productos favoritos")
         } detail: {
             Text("Selecciona un producto")
             }

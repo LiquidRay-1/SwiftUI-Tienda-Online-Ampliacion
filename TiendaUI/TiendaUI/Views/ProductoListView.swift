@@ -27,22 +27,24 @@ struct ProductoListView: View {
     }
     
     var body: some View {
-        NavigationSplitView{
-            Picker(selection: $categoriaSelected, content: {
-                Text("Selecciona").tag("")
-                ForEach(categorias.sorted(), id: \.self){ categoria in
-                    Text(categoria).tag(categoria)
-                }
-            }, label: { Text("Categorias") })
-            ForEach(filteredProductos){ producto in
-                NavigationLink {
-                    ContentView(producto: producto)
-                } label: {
-                    ItemRow(producto: producto)
+        NavigationSplitView {
+            List {
+                Picker(selection: $categoriaSelected, content: {
+                    Text("Categoría").tag("")
+                    ForEach(categorias.sorted(), id: \.self){ categoria in
+                        Text(categoria).tag(categoria)
+                    }
+                }, label: { Text("Categorías") })
+                ForEach(filteredProductos){ producto in
+                    NavigationLink {
+                        ContentView(producto: producto)
+                    } label: {
+                        ItemRow(producto: producto)
+                    }
                 }
             }
             .animation(.default, value: filteredProductos)
-                .navigationTitle("Todos los productos")
+                .navigationTitle("Productos")
         } detail: {
             Text("Selecciona un producto")
         }

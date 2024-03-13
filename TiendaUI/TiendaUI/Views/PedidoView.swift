@@ -8,31 +8,31 @@ import SwiftUI
 
 struct PedidoView: View {
     
-    @EnvironmentObject var lista: List
+    @EnvironmentObject var lista: Lista
     
     var body: some View {
         
         NavigationStack {
-                Section{
-                    ForEach(lista.items){ item in
-                        HStack{
-                            Text(item.title)
-                            Spacer()
-                            Text(String(format: "%.2f", item.price) + "€")
-                        }
-                    }
-                    .onDelete(perform: deleteItems)
-                }
-                Section{
-                    NavigationLink("Finalizar pedido"){
-                        PagoView()
+            Section{
+                ForEach(lista.items){ item in
+                    HStack{
+                        Text(item.title)
+                        Spacer()
+                        Text(String(format: "%.2f", item.price) + "€")
                     }
                 }
-                .disabled(lista.items.isEmpty)
-            .navigationTitle("Pedido")
+                .onDelete(perform: deleteItems)
+            }
+            Section{
+                NavigationLink("Finalizar pedido"){
+                    PagoView()
+                }
+            }
+            .disabled(lista.items.isEmpty)
+            .navigationTitle("Carrito")
             .toolbar{
-                EditButton()
-                    .disabled(lista.items.isEmpty)
+            EditButton()
+                .disabled(lista.items.isEmpty)
             }
         }
     }
@@ -43,6 +43,6 @@ struct PedidoView: View {
 
 #Preview {
     PedidoView()
-        .environmentObject(List())
+        .environmentObject(Lista())
 }
 

@@ -11,21 +11,21 @@ struct ControladorView: View {
     
     @Environment(ModelData.self) var modelData
     @EnvironmentObject var favoritos: Favoritos
-    @EnvironmentObject var lista: List
+    @EnvironmentObject var lista: Lista
     
     var body: some View {
         TabView {
             ProductoListView()
                 .tabItem {
-                    Label("Productos", systemImage: "list.dash")
+                    Label("Productos", systemImage: "bag")
                 }
             PedidoView()
                 .tabItem {
-                    Label("Pedido", systemImage: "cart")
+                    Label("Carrito", systemImage: "cart")
                 }
             FavoritosView()
                 .tabItem {
-                    Label("Favoritos", systemImage: "pencil")
+                    Label("Favoritos", systemImage: "star")
                 }
         }
     }
@@ -35,6 +35,6 @@ struct ControladorView: View {
     ControladorView()
         .environment(ModelData())
         .environmentObject(Favoritos())
-        .environmentObject(List())
+        .environmentObject(Lista())
 }
 

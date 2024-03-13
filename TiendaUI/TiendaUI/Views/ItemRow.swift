@@ -14,8 +14,8 @@ struct ItemRow: View {
     var producto: ProductosItem
     
     var body: some View {
-        HStack{
-            AsyncImage(
+        HStack {
+            AsyncImage (
                 url: producto.imageUrl,
                 content: { image in
                     image.resizable()
